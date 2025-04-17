@@ -1,0 +1,1 @@
+postmarketOS device package (based on raspberry-pi5)

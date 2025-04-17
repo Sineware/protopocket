@@ -7,7 +7,7 @@ The Protopocket is an open source reference development platform for mobile main
 ## Why?
 While there are many great phones that can run Linux today, the Protopocket fills a niche of being designed specifically for development purposes, and being fully OSHW that any individual can build themselves. While it won't be great as a daily driver:
 - Builds on a well support, predictable platform (Raspberry Pi)
-- Easy to debug (easy serial access)
+- Easy to debug (easy serial access) and flash (rpiboot)
 - Modular (Swap in different hardware to test as needed)
 
 ## Hardware
