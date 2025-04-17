@@ -1,11 +1,11 @@
-# Maintainer: winbo-yml-exe <winbo.yml@proton.me>
+# Maintainer: Seshan Ravikumar <seshan@sineware.ca>
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname=device-sineware-protopocket
 pkgver=1
 pkgrel=0
 pkgdesc="Sineware Pocket Workstation Prototype (Rolling)"
 url="https://postmarketos.org"
-license="MIT"
+license="GPL-3.0-or-later"
 arch="aarch64"
 options="!check !archcheck"
 depends="postmarketos-base raspberrypi-bootloader linux-rpi"
