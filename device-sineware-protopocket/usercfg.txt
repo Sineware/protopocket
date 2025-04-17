@@ -2,7 +2,7 @@ boot_delay=0
 
 arm_control=0x200
 
-kernel=vmlinuz-rpi
+kernel=vmlinuz
 initramfs initramfs
 
 gpu_mem=256

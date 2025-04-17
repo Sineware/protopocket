@@ -28,5 +28,35 @@ Todo:
 
 3D Printed Enclosure: https://www.printables.com/model/1266920-waveshare-625inch-dsi-display-case-for-raspberry-p
 
-## Building
+
+## Assembly
 Instructions coming soon!
+
+## postmarketOS
+This repository contains the packages needed to build postmarketOS device support for the Protopocket.
+
+There is a included script `protopocket.sh`, which can be used to insert symlinks from the device packages here into your local pmbootstrap pmports directory.
+
+First, setup the symlinks with:
+```bash
+./protopocket.sh install
+```
+
+
+When you need to run `pmbootstrap pull`, instead run `./protopocket.sh pmapull`, which will automatically remove the symlinks before running pull, and add them back again.
+
+To remove the symlinks run: `./protopocket.sh remove`.
+
+### Installing
+First compile the linux kernel:
+```bash
+pmbootstrap build --force linux-sineware-protopocket
+```
+then run `pmbootstrap init` and select `sineware` and `protopocket` as the vendor and device.
+
+Then, install to the SDCard or via rpiboot/usbboot (mounted) using:
+```bash
+pmbootstrap install --sdcard=/dev/sdX
+```
+
+> You should probably `pmbootstrap zap` anytime you rebuild the kernel or device package.

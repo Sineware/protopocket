@@ -1,0 +1,69 @@
+# Reference: <https://postmarketos.org/vendorkernel>
+# Kernel config based on: arch/arm64/configs/bcm2711_defconfig
+# Based on: https://gitlab.postmarketos.org/postmarketOS/pmaports/-/blob/master/device/testing/linux-clockworkpi-uconsole-cm4/APKBUILD
+pkgname=linux-sineware-protopocket
+pkgver=6.12.22
+pkgrel=1
+pkgdesc="Sineware Protopocket (Rolling) kernel fork"
+arch="aarch64"
+_carch="arm64"
+_flavor="sineware-protopocket"
+url="https://github.com/raspberrypi/linux"
+license="GPL-2.0-only"
+options="!strip !check !tracedeps pmb:cross-native"
+makedepends="
+	bash
+	bc
+	bison
+	devicepkg-dev
+	findutils
+	flex
+	openssl-dev
+	perl
+	xz
+"
+
+# Source
+_repository="linux"
+_commit="ef79eea9e4b8f5974a3bcb9fac2c15372d97bfff"
+_config="config-$_flavor.$arch"
+source="
+	$pkgname-$_commit.tar.gz::https://github.com/raspberrypi/$_repository/archive/$_commit.tar.gz
+	$_config
+"
+builddir="$srcdir/$_repository-$_commit"
+_outdir="out"
+
+prepare() {
+	default_prepare
+	cp "$srcdir/$_config" .config
+}
+
+build() {
+	unset LDFLAGS
+	make ARCH="$_carch" CC="${CC:-gcc}" \
+		KBUILD_BUILD_VERSION="$((pkgrel + 1))-postmarketOS"
+}
+
+package() {
+	downstreamkernel_package "$builddir" "$pkgdir" "$_carch" "$_flavor"
+
+	local INSTALL_DTBS_PATH="$pkgdir"/boot
+
+	mkdir -p "$pkgdir"/boot
+	make modules_install install dtbs_install \
+		ARCH="$_carch" \
+		INSTALL_PATH="$pkgdir"/boot \
+		INSTALL_MOD_PATH="$pkgdir" \
+		INSTALL_DTBS_PATH="$INSTALL_DTBS_PATH"
+	rm -f "$pkgdir"/lib/modules/*/build "$pkgdir"/lib/modules/*/source
+
+	mv -f "$INSTALL_DTBS_PATH"/broadcom/*.dtb \
+		"$INSTALL_DTBS_PATH"
+	rmdir "$INSTALL_DTBS_PATH"/broadcom
+}
+
+sha512sums="
+46509b305f49b5884f80e590836423851514732b63204156e0b4bb175076ee06172ca50f236b31614a868b51992b686c3788a1fcaa9256aa51c5d9ebf1daff2c  linux-sineware-protopocket-ef79eea9e4b8f5974a3bcb9fac2c15372d97bfff.tar.gz
+3cc84e1e7a3b0b05fd4e6a95367bc3384b81ca1573c1c3fcc11bdcaa1869c199d11e7276b30690c363c52df54d9f2d530792c67361757ec6a91c5c43185669db  config-sineware-protopocket.aarch64
+"
