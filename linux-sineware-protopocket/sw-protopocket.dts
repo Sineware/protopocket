@@ -19,6 +19,10 @@
                 compatible = "st,lsm6dsox";
                 reg = <0x6a>;
                 status = "okay";
+
+                mount-matrix = "0", "0", "-1",
+                                "1", "0", "0",
+                                "0", "1", "0";
             };
         };
     };
