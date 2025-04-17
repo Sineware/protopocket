@@ -9,7 +9,7 @@ url="https://postmarketos.org"
 license="GPL-3.0-or-later"
 arch="aarch64"
 options="!check !archcheck"
-depends="postmarketos-base raspberrypi-bootloader linux-sineware-protopocket"
+depends="postmarketos-base raspberrypi-bootloader linux-sineware-protopocket i2c-tools"
 makedepends="devicepkg-dev"
 subpackages="
 	$pkgname-nonfree-firmware:nonfree_firmware

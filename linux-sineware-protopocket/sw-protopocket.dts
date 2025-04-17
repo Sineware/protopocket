@@ -1,0 +1,40 @@
+/*
+ * Overlay for Sineware Protopocket (Rolling)
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&i2c1>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+
+            lsm6dsox: lsm6dsox@6a {
+                compatible = "st,lsm6dsox";
+                reg = <0x6a>;
+                status = "okay";
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&i2c1>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+
+            lis3mdl_magn: lis3mdl-magn@1c {
+                compatible = "st,lis3mdl-magn";
+                reg = <0x1c>;
+                status = "okay";
+            };
+        };
+    };
+};

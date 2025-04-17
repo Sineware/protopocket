@@ -55,3 +55,4 @@ dtparam=i2c_arm=on
 dtoverlay=dwc2,dr_mode=peripheral
 dtoverlay=vc4-kms-v3d
 dtoverlay=vc4-kms-dsi-waveshare-panel,6_25_inch,dsi0
+dtoverlay=sw-protopocket
