@@ -22,9 +22,10 @@ Current hardware:
 
 Todo:
 - LTE/5G Modem
-- USB-PD Battery Charger, Fuel Gauge
+- Battery, USB-PD Battery Charger, Fuel Gauge
 - Ambient Light Sensor, Proximity Sensor
 - Camera(s) (USB or CSI) 
+- Speaker, Microphone (I2S)
 
 3D Printed Enclosure: https://www.printables.com/model/1266920-waveshare-625inch-dsi-display-case-for-raspberry-p
 
