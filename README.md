@@ -1,6 +1,6 @@
 # Sineware Protopocket
 
-The Protopocket is an open source reference development platform for mobile mainline Linux. It's a chonky phone you can build yourself!
+The Protopocket is an open source, Raspberry Pi Compute Module 5 based reference development platform for mobile mainline Linux. It's a chonky phone you can build yourself!
 
 ![Protopocket on a table](./models/phone-1.png)
 
