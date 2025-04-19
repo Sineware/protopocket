@@ -6,7 +6,7 @@ The Protopocket is an open source, Raspberry Pi Compute Module 5 based reference
 
 ## Why?
 While there are many great phones that can run Linux today, the Protopocket fills a niche of being designed specifically for development purposes, and being fully OSHW that any individual can build themselves. While it won't be great as a daily driver:
-- Builds on a well support, predictable platform (Raspberry Pi)
+- Builds on a well supported, predictable platform (Raspberry Pi)
 - Easy to debug (easy serial access) and flash (rpiboot)
 - Modular (Swap in different hardware to test as needed)
 
